@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bravo Lab Vision Potencia tu marca con Inteligencia Artificial</title>
+    <!-- Carga de Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Librerías para Animaciones y Tipografía -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <!-- Iconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* Definición de la paleta de colores y configuración de fuentes de Tailwind */
+        :root {
+            --color-bg: #0A0A0F; /* Graphite Black */
+            --color-neon-blue: #007FFF;
+            --color-neon-violet: #8B00FF;
+            --color-white: #F2F2F2;
+        }
+
+        /* Aplicar fuentes a todo el cuerpo y elementos específicos */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-white);
+            overflow-x: hidden;
+        }
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Estilos de Neón Generales (para sombras y glows) */
+        .neon-blue-glow {
+            box-shadow: 0 0 10px var(--color-neon-blue), 0 0 20px rgba(0, 127, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        .neon-violet-glow {
+            box-shadow: 0 0 10px var(--color-neon-violet), 0 0 20px rgba(139, 0, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo para Botones CTA */
+        .btn-neon {
+            background-color: var(--color-neon-blue);
+            color: var(--color-bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 8px var(--color-neon-blue);
+        }
+        .btn-neon:hover {
+            background-color: #00A3FF;
+            box-shadow: 0 0 15px var(--color-neon-blue), 0 0 30px rgba(0, 127, 255, 0.7);
+            transform: translateY(-2px);
+        }
+
+        /* Estilo de Glassmorphism (Modales) */
+        .glassmorphism {
+            background: rgba(10, 10, 15, 0.8); /* Fondo semi-transparente del color base */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(139, 0, 255, 0.3); /* Borde sutil de neón violeta */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Efecto de degradado para tarjetas de servicio */
+        .gradient-card {
+            background: linear-gradient(135deg, rgba(10, 10, 15, 0.8), rgba(0, 127, 255, 0.1));
+            border-left: 3px solid var(--color-neon-violet);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gradient-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(139, 0, 255, 0.2);
+            border-left-color: var(--color-neon-blue);
+        }
+        
+        /* Ocultar barra de desplazamiento para carruseles */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Navbar con Reloj Digital -->
+    <header class="sticky top-0 z-50 glassmorphism p-4 flex justify-between items-center border-b border-violet-700/30">
+        <a href="#hero" class="text-2xl font-orbitron font-bold tracking-widest text-white hover:text-blue-400 transition duration-300">
+            BRAVO LAB VISION
+        </a>
+        <div class="flex items-center space-x-4">
+            <!-- Reloj y Calendario -->
+            <div class="text-right">
+                <div id="digital-clock" class="font-orbitron text-lg text-green-400 neon-blue-glow px-2 py-0.5 rounded-md">00:00:00</div>
+                <div id="current-date" class="text-xs text-gray-400">Lun, 01 Ene</div>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#services" class="text-sm font-medium hover:text-blue-400 transition duration-300">Servicios</a>
+                <a href="#founder" class="text-sm font-medium hover:text-blue-400 transition duration-300">Fundador</a>
+                <a href="#contact" class="text-sm font-medium hover:text-blue-400 transition duration-300">Contacto</a>
+            </nav>
+        </div>
+        <!-- Botón del Chat IA ELIMINADO -->
+    </header>
+
+    <main class="py-12 md:py-24">
+
+        <!-- 1. Sección Principal (Hero Section) -->
+        <section id="hero" class="min-h-[80vh] flex items-center justify-center text-center p-6" data-aos="fade-up" data-aos-duration="1000">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-orbitron font-extrabold mb-6 leading-tight">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-violet-500">
+                        Bravo Lab Vision
+                    </span>
+                    <span class="block text-4xl md:text-6xl text-white mt-4">
+                        — Potencia tu marca con IA
+                    </span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl font-light mb-10 text-gray-300">
+                    Especialistas en <span id="dynamic-text" class="text-blue-300 font-bold"></span>
+                </p>
+
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#services" class="btn-neon bg-violet-600 hover:bg-violet-700 neon-violet-glow border-2 border-violet-500">
+                        <i class="fas fa-brain"></i> Explorar servicios
+                    </a>
+                    <!-- Botón de Chat IA ELIMINADO -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Sección de Servicios -->
+        <section id="services" class="py-20 md:py-32 px-6 bg-[#0E0E14] border-t border-b border-gray-800/50">
+            <h2 class="text-4xl md:text-5xl font-orbitron font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white" data-aos="fade-right">
+                Servicios de Vanguardia
+            </h2>
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Tarjeta 1: Diseño Web con IA -->
+                <div class="gradient-card p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-5xl mb-4 text-blue-400"><i class="fas fa-drafting-compass"></i></div>
+                    <h3 class="text-2xl font-orbitron font-semibold mb-3">Diseño Web con IA</h3>
+                    <p class="text-gray-400 mb-6">Creación de sitios modernos con Gemini, optimizados para SEO y conversiones. Desarrollos ultra-rápidos y funcionales.</p>
+                    <a href="https://wa.me/573159595232?text=Hola%20Bravo%20Lab%20Vision,%20quiero%20conocer%20el%20servicio%20de%20Diseño%20Web." target="_blank" class="text-sm font-bold text-violet-400 hover:text-violet-300 transition duration-300 flex items-center">
+                        Solicitar Servicio <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 2: Branding & Estrategia Visual -->
+                <div class="gradient-card p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-5xl mb-4 text-violet-400"><i class="fas fa-lightbulb"></i></div>
+                    <h3 class="text-2xl font-orbitron font-semibold mb-3">Branding & Estrategia Visual</h3>
+                    <p class="text-gray-400 mb-6">Creación de logos, paletas de colores, tarjetas digitales y estilo de marca que inspira confianza y autoridad.</p>
+                    <a href="https://wa.me/573159595232?text=Hola%20Bravo%20Lab%20Vision,%20quiero%20conocer%20el%20servicio%20de%20Branding." target="_blank" class="text-sm font-bold text-violet-400 hover:text-violet-300 transition duration-300 flex items-center">
+                        Solicitar Servicio <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Tarjeta 3: Marketing Digital Inteligente -->
+                <div class="gradient-card p-8 rounded-xl" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-5xl mb-4 text-blue-400"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-2xl font-orbitron font-semibold mb-3">Marketing Digital Inteligente</h3>
+                    <p class="text-gray-400 mb-6">Campañas de alto rendimiento, automatización avanzada y contenido generado por IA para un crecimiento exponencial.</p>
+                    <a href="https://wa.me/573159595232?text=Hola%20Bravo%20Lab%20Vision,%20quiero%20conocer%20el%20servicio%20de%20Marketing%20Digital." target="_blank" class="text-sm font-bold text-violet-400 hover:text-violet-300 transition duration-300 flex items-center">
+                        Solicitar Servicio <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Generador de Imágenes con Gemini (Laboratorio Visual) ELIMINADO -->
+
+
+        <!-- 5. Perfil del Fundador -->
+        <section id="founder" class="py-20 md:py-32 px-6 bg-[#0E0E14] border-t border-gray-800/50">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-violet-300 to-white" data-aos="fade-left">
+                    El Motor de la Visión
+                </h2>
+
+                <div class="glassmorphism flex flex-col md:flex-row items-center p-8 rounded-xl border-2 border-violet-500/20" data-aos="fade-up">
+                    <img src="https://placehold.co/150x150/007FFF/F2F2F2?text=JF" onerror="this.src='https://placehold.co/150x150/007FFF/F2F2F2?text=JF'" alt="Avatar del Fundador" class="w-32 h-32 rounded-full object-cover mb-6 md:mb-0 md:mr-8 border-4 border-blue-400 neon-blue-glow">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-3xl font-orbitron font-semibold text-blue-400 mb-2">Jonathan Felipe Restrepo</h3>
+                        <p class="text-sm font-light text-gray-400 mb-4">Fundador de Bravo Lab Vision</p>
+                        <p class="text-lg mb-6">
+                            Emprendedor apasionado por el diseño, la inteligencia artificial y la creación de marcas que inspiran confianza. Liderando la transformación digital.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-6 text-sm">
+                            <span class="text-white"><i class="fas fa-envelope text-violet-400 mr-2"></i> bravolabvision@gmail.com</span>
+                            <span class="text-white"><i class="fas fa-phone-alt text-violet-400 mr-2"></i> 315 959 5232</span>
+                            <button onclick="document.getElementById('founder-modal').classList.remove('hidden')" class="text-sm px-4 py-2 bg-violet-600 hover:bg-violet-700 rounded-full transition duration-300">
+                                Conóceme más
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Sección de Noticias (Mockup) -->
+        <section id="news" class="py-20 md:py-32 px-6">
+            <h2 class="text-4xl md:text-5xl font-orbitron font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white" data-aos="fade-right">
+                Noticias del Futuro Digital
+            </h2>
+            <div id="news-carousel" class="max-w-7xl mx-auto flex overflow-x-scroll hide-scrollbar pb-6 space-x-6 md:space-x-8">
+                <!-- Las tarjetas de noticias se insertarán aquí por JavaScript -->
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-6">
+                *Contenido generado con datos de ejemplo para fines de demostración.
+            </p>
+        </section>
+
+        <!-- 8. Reseñas de Clientes Felices -->
+        <section id="reviews" class="py-20 md:py-32 px-6 bg-[#0E0E14] border-t border-gray-800/50">
+            <h2 class="text-4xl md:text-5xl font-orbitron font-bold text-center mb-16 text-white" data-aos="fade-up">
+                Clientes Satisfechos
+            </h2>
+            <div id="reviews-carousel" class="max-w-6xl mx-auto flex overflow-x-scroll hide-scrollbar pb-6 space-x-6 md:space-x-8">
+                
+                <!-- Testimonial 1 -->
+                <div class="glassmorphism min-w-[300px] md:min-w-[400px] p-6 rounded-xl border-l-4 border-blue-500 snap-center flex-shrink-0" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="text-2xl mb-4 text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    <p class="italic text-gray-300 mb-4">"Excelente servicio, mi página quedó increíble. El diseño es moderno y capta la esencia de mi marca."</p>
+                    <p class="font-semibold text-blue-400">— Carlos Gómez</p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="glassmorphism min-w-[300px] md:min-w-[400px] p-6 rounded-xl border-l-4 border-violet-500 snap-center flex-shrink-0" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="text-2xl mb-4 text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    <p class="italic text-gray-300 mb-4">"El equipo de Bravo Lab me ayudó a obtener información clave para mi negocio, 100% recomendado por su eficiencia."</p>
+                    <p class="font-semibold text-blue-400">— Laura R.</p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="glassmorphism min-w-[300px] md:min-w-[400px] p-6 rounded-xl border-l-4 border-blue-500 snap-center flex-shrink-0" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="text-2xl mb-4 text-yellow-500">⭐⭐⭐⭐⭐</div>
+                    <p class="italic text-gray-300 mb-4">"Bravo Lab Vision me ayudó a posicionar mi marca en el mercado digital con una estrategia de IA sólida."</p>
+                    <p class="font-semibold text-violet-400">— David F.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Llamado a la Acción Final -->
+        <section id="contact" class="py-20 md:py-32 px-6">
+            <div class="max-w-5xl mx-auto text-center bg-blue-700/20 p-12 rounded-xl border-2 border-blue-500/50 neon-blue-glow" data-aos="zoom-in">
+                <h2 class="text-4xl md:text-5xl font-orbitron font-bold mb-4 text-white">
+                    ¿Listo para transformar tu negocio con IA?
+                </h2>
+                <p class="text-lg font-light text-gray-300 mb-8">
+                    Contacta directamente a Bravo Lab Vision y lleva tu marca al siguiente nivel.
+                </p>
+                
+                <div class="flex justify-center flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8 mb-8 text-lg font-semibold">
+                    <span>📞 <span class="text-blue-300">315 959 5232</span></span>
+                    <span>📧 <span class="text-blue-300">bravolabvision@gmail.com</span></span>
+                </div>
+
+                <a href="https://wa.me/573159595232?text=¡Hola!%20Estoy%20listo%20para%20transformar%20mi%20negocio%20con%20IA." target="_blank" class="btn-neon text-xl py-3 px-8 bg-violet-600 hover:bg-violet-700 border-2 border-violet-500 neon-violet-glow">
+                    Hablemos Ahora <i class="fab fa-whatsapp ml-2"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 10. Footer (Pie de página) -->
+    <footer class="p-8 border-t border-gray-800/50 bg-[#0E0E14] text-gray-400">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
+            
+            <!-- Redes Sociales -->
+            <div class="flex space-x-6 mb-4 md:mb-0 text-xl">
+                <a href="#" target="_blank" class="hover:text-blue-400 transition duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" class="hover:text-blue-400 transition duration-300"><i class="fab fa-youtube"></i></a>
+            </div>
+
+            <!-- Copyright & Lema -->
+            <div class="text-center mb-4 md:mb-0">
+                <p class="font-orbitron font-semibold text-white">Tu visión. Nuestra creación.</p>
+                <p>Copyright © 2025 Bravo Lab Vision</p>
+            </div>
+
+            <!-- Enlace Legal -->
+            <div>
+                <a href="#" class="hover:text-blue-400 transition duration-300">Política de Privacidad</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal "Sumérgete en mi visión" (Founder) -->
+    <div id="founder-modal" class="fixed inset-0 z-[200] hidden bg-black/80 flex items-center justify-center p-4">
+        <div class="glassmorphism max-w-lg p-8 rounded-xl border-2 border-violet-500/50 shadow-2xl relative">
+            <button onclick="document.getElementById('founder-modal').classList.add('hidden')" class="absolute top-4 right-4 text-gray-400 hover:text-white"><i class="fas fa-times"></i></button>
+            <h3 class="text-3xl font-orbitron font-bold text-violet-400 mb-4">Jonathan Felipe Restrepo: Mini Biografía</h3>
+            <p class="text-gray-300 mb-4">
+                Jonathan F. Restrepo es un estratega digital con más de 2 años de experiencia en la intersección de diseño creativo y automatización inteligente. Fundó Bravo Lab Vision con la misión de democratizar el acceso a la tecnología de IA para PYMES y emprendedores, ofreciendo soluciones de marca y web que no solo son visualmente atractivas, sino también altamente funcionales y orientadas al rendimiento.
+            </p>
+            <p class="text-gray-300 italic">"Creemos que la IA es el pincel del siglo XXI. Queremos ayudarte a pintar tu obra maestra digital."</p>
+            <a href="https://www.linkedin.com/in/jonathan-felipe-restrepo-589275397" target="_blank" class="mt-6 inline-block text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-full transition duration-300 text-white font-medium">
+                Ver Perfil de LinkedIn <i class="fab fa-linkedin ml-2"></i>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- Lógica JavaScript -->
+    <script>
+        // La URL de la API de Gemini ha sido eliminada.
+        
+        // ----------------------------------------------------
+        // 1. Inicialización y Elementos Dinámicos
+        // ----------------------------------------------------
+
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({
+                once: true,
+                duration: 1200,
+                easing: 'ease-in-out-cubic',
+            });
+            initDynamicText();
+            updateClock();
+            setInterval(updateClock, 1000);
+            populateNews();
+            
+            // Iniciar carruseles automáticos
+            startCarouselAutoScroll('news-carousel', 4000); // Noticias: 4 segundos
+            startCarouselAutoScroll('reviews-carousel', 6000); // Reseñas: 6 segundos
+        });
+
+        // Typed.js para el subtítulo dinámico
+        function initDynamicText() {
+            new Typed('#dynamic-text', {
+                strings: ["Diseño Web", "Branding con IA", "Automatización inteligente", "SEO Avanzado", "Soluciones con Gemini"],
+                typeSpeed: 70,
+                backSpeed: 50,
+                backDelay: 1500,
+                startDelay: 500,
+                loop: true
+            });
+        }
+
+        // ----------------------------------------------------
+        // 6. Reloj y Calendario en Tiempo Real
+        // ----------------------------------------------------
+
+        function updateClock() {
+            const now = new Date();
+            const clockEl = document.getElementById('digital-clock');
+            const dateEl = document.getElementById('current-date');
+
+            // Formato de hora (HH:MM:SS)
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            clockEl.textContent = `${hours}:${minutes}:${seconds}`;
+
+            // Formato de fecha (Día, DD Mes)
+            const options = { weekday: 'short', day: '2-digit', month: 'short' };
+            const dateString = now.toLocaleDateString('es-ES', options).replace('.', '');
+            dateEl.textContent = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+        }
+
+        // ----------------------------------------------------
+        // 7. Sección de Noticias (Mock Data) con links externos
+        // ----------------------------------------------------
+        
+        const mockNews = [
+            // Reemplazando '#' con URLs de ejemplo válidas
+            { id: 1, title: "Gemini 2.5 Pro revoluciona el desarrollo web.", date: "05/11/2025", image: "https://placehold.co/400x250/007FFF/F2F2F2?text=IA+Web", link: "https://www.forbes.com/ai-web-dev" },
+            { id: 2, title: "Las 5 tendencias de Branding con Neón para 2026.", date: "03/11/2025", image: "https://placehold.co/400x250/8B00FF/F2F2F2?text=Branding", link: "https://www.fastcompany.com/neon-branding" },
+            { id: 3, title: "Automatización de Marketing: Ahorra 10 horas semanales.", date: "30/10/2025", image: "https://placehold.co/400x250/007FFF/F2F2F2?text=Marketing", link: "https://www.hubspot.com/marketing-automation" },
+            { id: 4, title: "El futuro del SEO post-Google AI.", date: "25/10/2025", image: "https://placehold.co/400x250/8B00FF/F2F2F2?text=SEO+Futuro", link: "https://searchengineland.com/future-seo" },
+        ];
+
+        function populateNews() {
+            const container = document.getElementById('news-carousel');
+            container.innerHTML = mockNews.map((item, index) => `
+                <div class="glassmorphism min-w-[280px] md:min-w-[350px] rounded-xl overflow-hidden border border-blue-500/20 flex-shrink-0" data-aos="fade-up" data-aos-delay="${index * 150}">
+                    <img src="${item.image}" alt="${item.title}" class="w-full h-40 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold text-blue-300 mb-2">${item.title}</h4>
+                        <p class="text-xs text-gray-500 mb-4">${item.date}</p>
+                        <a href="${item.link}" target="_blank" class="text-sm font-bold text-violet-400 hover:text-violet-300 transition duration-300">
+                            Leer más <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ----------------------------------------------------
+        // Lógica de Carrusel Automático para Noticias y Reseñas
+        // ----------------------------------------------------
+
+        function startCarouselAutoScroll(id, intervalTime) {
+            const carousel = document.getElementById(id);
+            if (!carousel) return;
+
+            // Determinar la cantidad de desplazamiento (aproximadamente el ancho de una tarjeta + espacio)
+            const calculateStep = () => {
+                const firstChild = carousel.firstElementChild;
+                if (firstChild) {
+                    const style = window.getComputedStyle(firstChild);
+                    // Ancho del elemento + margin-right
+                    return firstChild.offsetWidth + parseInt(style.marginRight);
+                }
+                return carousel.clientWidth / 3; // Fallback
+            };
+
+            let currentStep = calculateStep();
+            let scrollPosition = 0;
+
+            setInterval(() => {
+                // Si llegamos cerca del final, volvemos al inicio con un desplazamiento suave
+                if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5) { // -5 de tolerancia
+                    carousel.scrollTo({
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                    scrollPosition = 0;
+                } else {
+                    // Desplazar un paso hacia la derecha
+                    carousel.scrollBy({
+                        left: currentStep,
+                        behavior: 'smooth'
+                    });
+                    scrollPosition += currentStep;
+                }
+            }, intervalTime);
+        }
+        
+        // La lógica de la API (fetchWithBackoff, sendChatMessage, generateImage) ha sido eliminada.
+        
+    </script>
+<script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="1iVtaxd_XRd3bvwF_NK6u";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>
